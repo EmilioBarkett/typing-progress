@@ -47,7 +47,7 @@ for ((i = OLD; i < NEW; i++)); do
   fi
   MSG=$(jq -r ".[$i] | \"Practice session: \(.lessons) lessons, \(.minutes) min, \(.avgWpm) WPM avg, \(.accuracy)% accuracy\"" "$FULL")
   # Date the commit in local time so it lands on the right day on GitHub.
-  WHEN=$(date -r "$(jq -r ".[$i].end | fromdate" "$FULL")" +%Y-%m-%dT%H:%M:%S%z)
+  WHEN=$(date -r "$(jq -r ".[$i].end | sub(\"[.][0-9]+Z$\"; \"Z\") | fromdate" "$FULL")" +%Y-%m-%dT%H:%M:%S%z)
   GIT_AUTHOR_DATE="$WHEN" GIT_COMMITTER_DATE="$WHEN" git commit -q -m "$MSG"
 done
 
