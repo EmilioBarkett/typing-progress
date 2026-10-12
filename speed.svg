@@ -1,34 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="774" height="220" viewBox="0 0 774 220" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11">
 <style>
-  .t { fill: #57606a; } .h { fill: #24292f; } .g { stroke: #d0d7de; }
-  .l0 { fill: #ebedf0; } .l1 { fill: #9be9a8; } .l2 { fill: #40c463; }
-  .l3 { fill: #30a14e; } .l4 { fill: #216e39; }
-  .line { stroke: #2da44e; } .dot { fill: #2da44e; }
-  @media (prefers-color-scheme: dark) {
-    .t { fill: #8b949e; } .h { fill: #e6edf3; } .g { stroke: #30363d; }
-    .l0 { fill: #161b22; } .l1 { fill: #0e4429; } .l2 { fill: #006d32; }
-    .l3 { fill: #26a641; } .l4 { fill: #39d353; }
-    .line { stroke: #3fb950; } .dot { fill: #3fb950; }
-  }
+.kc-t { fill: #57606a; }
+.kc-h { fill: #24292f; }
+.kc-g { stroke: #d0d7de; }
+.kc-l0 { fill: #ebedf0; }
+.kc-l1 { fill: #9be9a8; }
+.kc-l2 { fill: #40c463; }
+.kc-l3 { fill: #30a14e; }
+.kc-l4 { fill: #216e39; }
+.kc-line { stroke: #2da44e; }
+.kc-dot { fill: #2da44e; }
+@media (prefers-color-scheme: dark) {
+:root:not([data-theme="light"]) .kc-t { fill: #8b949e; }
+:root:not([data-theme="light"]) .kc-h { fill: #e6edf3; }
+:root:not([data-theme="light"]) .kc-g { stroke: #30363d; }
+:root:not([data-theme="light"]) .kc-l0 { fill: #262a31; }
+:root:not([data-theme="light"]) .kc-l1 { fill: #0e4429; }
+:root:not([data-theme="light"]) .kc-l2 { fill: #006d32; }
+:root:not([data-theme="light"]) .kc-l3 { fill: #26a641; }
+:root:not([data-theme="light"]) .kc-l4 { fill: #39d353; }
+:root:not([data-theme="light"]) .kc-line { stroke: #3fb950; }
+:root:not([data-theme="light"]) .kc-dot { fill: #3fb950; }
+}
+:root[data-theme="dark"] .kc-t { fill: #8b949e; }
+:root[data-theme="dark"] .kc-h { fill: #e6edf3; }
+:root[data-theme="dark"] .kc-g { stroke: #30363d; }
+:root[data-theme="dark"] .kc-l0 { fill: #262a31; }
+:root[data-theme="dark"] .kc-l1 { fill: #0e4429; }
+:root[data-theme="dark"] .kc-l2 { fill: #006d32; }
+:root[data-theme="dark"] .kc-l3 { fill: #26a641; }
+:root[data-theme="dark"] .kc-l4 { fill: #39d353; }
+:root[data-theme="dark"] .kc-line { stroke: #3fb950; }
+:root[data-theme="dark"] .kc-dot { fill: #3fb950; }
 </style>
-<text class="h" x="0" y="16" font-size="14" font-weight="600">Typing speed</text>
-<text class="t" x="0" y="32">Average words per minute on each practice day</text>
-<line class="g" x1="40" x2="704" y1="192" y2="192" stroke-width="1"/>
-<text class="t" x="32" y="196" text-anchor="end">0</text>
-<line class="g" x1="40" x2="704" y1="155" y2="155" stroke-width="1"/>
-<text class="t" x="32" y="159" text-anchor="end">20</text>
-<line class="g" x1="40" x2="704" y1="118" y2="118" stroke-width="1"/>
-<text class="t" x="32" y="122" text-anchor="end">40</text>
-<line class="g" x1="40" x2="704" y1="81" y2="81" stroke-width="1"/>
-<text class="t" x="32" y="85" text-anchor="end">60</text>
-<line class="g" x1="40" x2="704" y1="44" y2="44" stroke-width="1"/>
-<text class="t" x="32" y="48" text-anchor="end">80</text>
-<text class="t" x="40" y="212" text-anchor="middle">Sep 21</text>
-<text class="t" x="206" y="212" text-anchor="middle">Sep 26</text>
-<text class="t" x="372" y="212" text-anchor="middle">Oct 1</text>
-<text class="t" x="538" y="212" text-anchor="middle">Oct 6</text>
-<text class="t" x="704" y="212" text-anchor="middle">Oct 12</text>
-<path class="line" d="M40.0,81.6 L545.9,85.3 L577.5,94.0 L704.0,79.7" fill="none" stroke-width="2" stroke-linejoin="round"/>
-<circle class="dot" cx="40.0" cy="81.6" r="3"><title>Sep 21: 60 WPM</title></circle><circle class="dot" cx="545.9" cy="85.3" r="3"><title>Oct 7: 58 WPM</title></circle><circle class="dot" cx="577.5" cy="94.0" r="3"><title>Oct 8: 53 WPM</title></circle><circle class="dot" cx="704.0" cy="79.7" r="3"><title>Oct 12: 61 WPM</title></circle>
-<text class="h" x="712" y="83.705" font-weight="600">61 WPM</text>
+<text class="kc-h" x="0" y="16" font-size="14" font-weight="600">Typing speed</text>
+<text class="kc-t" x="0" y="32">Average words per minute on each practice day</text>
+<line class="kc-g" x1="40" x2="704" y1="192" y2="192" stroke-width="1"/>
+<text class="kc-t" x="32" y="196" text-anchor="end">0</text>
+<line class="kc-g" x1="40" x2="704" y1="155" y2="155" stroke-width="1"/>
+<text class="kc-t" x="32" y="159" text-anchor="end">20</text>
+<line class="kc-g" x1="40" x2="704" y1="118" y2="118" stroke-width="1"/>
+<text class="kc-t" x="32" y="122" text-anchor="end">40</text>
+<line class="kc-g" x1="40" x2="704" y1="81" y2="81" stroke-width="1"/>
+<text class="kc-t" x="32" y="85" text-anchor="end">60</text>
+<line class="kc-g" x1="40" x2="704" y1="44" y2="44" stroke-width="1"/>
+<text class="kc-t" x="32" y="48" text-anchor="end">80</text>
+<text class="kc-t" x="40" y="212" text-anchor="middle">Sep 21</text>
+<text class="kc-t" x="206" y="212" text-anchor="middle">Sep 26</text>
+<text class="kc-t" x="372" y="212" text-anchor="middle">Oct 1</text>
+<text class="kc-t" x="538" y="212" text-anchor="middle">Oct 6</text>
+<text class="kc-t" x="704" y="212" text-anchor="middle">Oct 12</text>
+<path class="kc-line" d="M40.0,81.6 L545.9,85.3 L577.5,94.0 L704.0,79.7" fill="none" stroke-width="2" stroke-linejoin="round"/>
+<circle class="kc-dot" cx="40.0" cy="81.6" r="3"><title>Sep 21: 60 WPM</title></circle><circle class="kc-dot" cx="545.9" cy="85.3" r="3"><title>Oct 7: 58 WPM</title></circle><circle class="kc-dot" cx="577.5" cy="94.0" r="3"><title>Oct 8: 53 WPM</title></circle><circle class="kc-dot" cx="704.0" cy="79.7" r="3"><title>Oct 12: 61 WPM</title></circle>
+<text class="kc-h" x="712" y="83.705" font-weight="600">61 WPM</text>
 </svg>
