@@ -26,8 +26,10 @@ fi
 cd "$KEYBR"
 npx tsnode scripts/export-progress.ts "$STATS" "$REPO" 2>/dev/null
 
+# Only a change in sessions.json is worth a commit. The images also change when
+# the date changes, but those updates ride along with the next session's commit.
 cd "$REPO"
-if git diff --quiet HEAD -- sessions.json README.md 2>/dev/null &&
+if git diff --quiet HEAD -- sessions.json 2>/dev/null &&
   git ls-files --error-unmatch sessions.json >/dev/null 2>&1; then
   exit 0
 fi
@@ -41,7 +43,7 @@ for ((i = OLD; i < NEW; i++)); do
   jq ".[0:$((i + 1))]" "$FULL" >sessions.json
   git add sessions.json
   if ((i == NEW - 1)); then
-    git add README.md
+    git add README.md calendar.svg speed.svg
   fi
   MSG=$(jq -r ".[$i] | \"Practice session: \(.lessons) lessons, \(.minutes) min, \(.avgWpm) WPM avg, \(.accuracy)% accuracy\"" "$FULL")
   WHEN=$(jq -r ".[$i].end" "$FULL")
@@ -50,8 +52,8 @@ done
 
 cp "$FULL" sessions.json
 rm "$FULL"
-if ! git diff --quiet -- sessions.json README.md; then
-  git add sessions.json README.md
+if ! git diff --quiet -- sessions.json; then
+  git add sessions.json README.md calendar.svg speed.svg
   git commit -q -m "Update progress"
 fi
 
