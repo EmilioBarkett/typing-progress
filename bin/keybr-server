@@ -1,0 +1,6 @@
+#!/bin/zsh
+# Runs the self-hosted keybr.com server with Node 26 (started by launchd).
+source "$HOME/.nvm/nvm.sh"
+nvm use 26 >/dev/null
+cd "$HOME/Developer/keybr.com"
+exec node root/index.js

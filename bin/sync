@@ -1,0 +1,58 @@
+#!/bin/zsh
+# Exports finished keybr practice sessions into this repo and makes one commit
+# per new session, dated when the session ended. Run every few minutes by launchd.
+set -euo pipefail
+export PATH="/opt/homebrew/bin:/usr/bin:/bin:$PATH"
+source "$HOME/.nvm/nvm.sh"
+nvm use 26 >/dev/null
+
+REPO="${0:A:h:h}"
+KEYBR="$HOME/Developer/keybr.com"
+DATA_DIR="${KEYBR_DATA_DIR:-$HOME/.local/state/keybr}"
+
+# The first account in the local database is yours.
+USER_ID=$(sqlite3 "$DATA_DIR/database.sqlite" "select min(id) from user;")
+if [[ -z "$USER_ID" ]]; then
+  echo "No keybr account yet."
+  exit 0
+fi
+PADDED=$(printf "%09d" "$USER_ID")
+STATS="$DATA_DIR/user_stats/${PADDED:0:3}/${PADDED:3:3}/$PADDED"
+if [[ ! -f "$STATS" ]]; then
+  echo "No results yet."
+  exit 0
+fi
+
+cd "$KEYBR"
+npx tsnode scripts/export-progress.ts "$STATS" "$REPO" 2>/dev/null
+
+cd "$REPO"
+if git diff --quiet HEAD -- sessions.json README.md 2>/dev/null &&
+  git ls-files --error-unmatch sessions.json >/dev/null 2>&1; then
+  exit 0
+fi
+
+FULL=$(mktemp)
+cp sessions.json "$FULL"
+OLD=$(git show HEAD:sessions.json 2>/dev/null | jq length || echo 0)
+NEW=$(jq length "$FULL")
+
+for ((i = OLD; i < NEW; i++)); do
+  jq ".[0:$((i + 1))]" "$FULL" >sessions.json
+  git add sessions.json
+  if ((i == NEW - 1)); then
+    git add README.md
+  fi
+  MSG=$(jq -r ".[$i] | \"Practice session: \(.lessons) lessons, \(.minutes) min, \(.avgWpm) WPM avg, \(.accuracy)% accuracy\"" "$FULL")
+  WHEN=$(jq -r ".[$i].end" "$FULL")
+  GIT_AUTHOR_DATE="$WHEN" GIT_COMMITTER_DATE="$WHEN" git commit -q -m "$MSG"
+done
+
+cp "$FULL" sessions.json
+rm "$FULL"
+if ! git diff --quiet -- sessions.json README.md; then
+  git add sessions.json README.md
+  git commit -q -m "Update progress"
+fi
+
+git push -q origin main || echo "Push failed; will retry on the next run."
