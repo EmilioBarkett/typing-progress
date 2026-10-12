@@ -46,7 +46,8 @@ for ((i = OLD; i < NEW; i++)); do
     git add README.md calendar.svg speed.svg
   fi
   MSG=$(jq -r ".[$i] | \"Practice session: \(.lessons) lessons, \(.minutes) min, \(.avgWpm) WPM avg, \(.accuracy)% accuracy\"" "$FULL")
-  WHEN=$(jq -r ".[$i].end" "$FULL")
+  # Date the commit in local time so it lands on the right day on GitHub.
+  WHEN=$(date -r "$(jq -r ".[$i].end | fromdate" "$FULL")" +%Y-%m-%dT%H:%M:%S%z)
   GIT_AUTHOR_DATE="$WHEN" GIT_COMMITTER_DATE="$WHEN" git commit -q -m "$MSG"
 done
 
