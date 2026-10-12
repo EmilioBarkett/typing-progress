@@ -1,0 +1,22 @@
+#!/bin/zsh
+# Imports a typing-data.json downloaded from a keybr.com profile into your
+# local keybr account. Safe to run more than once.
+#
+# Usage: bin/import ~/Downloads/typing-data.json
+set -euo pipefail
+source "$HOME/.nvm/nvm.sh"
+nvm use 26 >/dev/null
+
+JSON="${1:A}"
+DATA_DIR="${KEYBR_DATA_DIR:-$HOME/.local/state/keybr}"
+
+USER_ID=$(sqlite3 "$DATA_DIR/database.sqlite" "select min(id) from user;")
+if [[ -z "$USER_ID" ]]; then
+  echo "No keybr account yet. Log in at http://localhost:3000 first."
+  exit 1
+fi
+PADDED=$(printf "%09d" "$USER_ID")
+STATS="$DATA_DIR/user_stats/${PADDED:0:3}/${PADDED:3:3}/$PADDED"
+
+cd "$HOME/Developer/keybr.com"
+npx tsnode scripts/import-progress.ts "$JSON" "$STATS" 2>/dev/null
