@@ -31,6 +31,10 @@ npx tsnode scripts/export-progress.ts "$STATS" "$REPO" 2>/dev/null
 cd "$REPO"
 if git diff --quiet HEAD -- sessions.json 2>/dev/null &&
   git ls-files --error-unmatch sessions.json >/dev/null 2>&1; then
+  # Nothing new, but retry pushing sessions committed while offline.
+  if [[ "$(git rev-list --count @{u}..HEAD)" -gt 0 ]]; then
+    git push -q origin main || echo "Push failed; will retry on the next run."
+  fi
   exit 0
 fi
 
