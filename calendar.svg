@@ -419,7 +419,8 @@
 <rect class="kc-l2" x="760" y="64" width="11" height="11" rx="2"><title>Oct 21: 19 min</title></rect>
 <rect class="kc-l3" x="760" y="78" width="11" height="11" rx="2"><title>Oct 22: 20 min</title></rect>
 <rect class="kc-l2" x="760" y="92" width="11" height="11" rx="2"><title>Oct 23: 16 min</title></rect>
-<text class="kc-t" x="32" y="139">4h 7m of practice on 15 days in the last year</text>
+<rect class="kc-l2" x="760" y="106" width="11" height="11" rx="2"><title>Oct 24: 18 min</title></rect>
+<text class="kc-t" x="32" y="139">4h 25m of practice on 16 days in the last year</text>
 <text class="kc-t" x="667" y="139" text-anchor="end">Less</text>
 <rect class="kc-l0" x="671" y="130" width="11" height="11" rx="2"/><rect class="kc-l1" x="685" y="130" width="11" height="11" rx="2"/><rect class="kc-l2" x="699" y="130" width="11" height="11" rx="2"/><rect class="kc-l3" x="713" y="130" width="11" height="11" rx="2"/><rect class="kc-l4" x="727" y="130" width="11" height="11" rx="2"/>
 <text class="kc-t" x="771" y="139" text-anchor="end">More</text>
