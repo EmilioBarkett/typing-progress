@@ -358,5 +358,14 @@
     "avgWpm": 72.2,
     "bestWpm": 75.1,
     "accuracy": 96.8
+  },
+  {
+    "start": "2026-11-09T16:08:32.000Z",
+    "end": "2026-11-09T16:17:05.000Z",
+    "lessons": 12,
+    "minutes": 7.6,
+    "avgWpm": 73.4,
+    "bestWpm": 76.5,
+    "accuracy": 95.5
   }
 ]
