@@ -5,7 +5,7 @@ Each commit to this repo is one practice session.
 
 | Sessions | Lessons | Time practiced | Latest avg speed | Best lesson |
 | --- | --- | --- | --- | --- |
-| 42 | 743 | 6h 12m | 81.9 WPM | 100.5 WPM |
+| 43 | 744 | 6h 12m | 72.1 WPM | 100.5 WPM |
 
 ![Practice calendar](calendar.svg)
 
@@ -15,6 +15,7 @@ Each commit to this repo is one practice session.
 
 | Date | Lessons | Time | Avg WPM | Best WPM | Accuracy |
 | --- | --- | --- | --- | --- | --- |
+| 2026-11-13 22:39 | 1 | 1m | 72.1 | 72.1 | 97.9% |
 | 2026-11-12 23:12 | 1 | 1m | 81.9 | 81.9 | 96.9% |
 | 2026-11-09 10:08 | 12 | 8m | 73.4 | 76.5 | 95.5% |
 | 2026-11-07 08:45 | 5 | 3m | 72.2 | 75.1 | 96.8% |
